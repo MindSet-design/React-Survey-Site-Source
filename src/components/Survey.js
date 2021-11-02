@@ -44,13 +44,13 @@ class Form extends React.Component {
     this.props.history.push("/React-Survey-Site/Results");
 
     //having trouble getting this working and rerouting the page
-    //but there is other stuff I'd rather working on so  this is 
-    //just the way it is for now unless I come back to work on it
+    //but there is other stuff I'd rather working on so  
+    //could be fixed by making a div with buttons instead of alerts
+    
 
     // .then(function(res)  {   
     //   console.log(res);
-    //   alert('Your submission was successfull! Go to the data page');
-    //   res.props.history.push("/results");      
+    //   alert('Your submission was successfull! Go to the data page');      
     // })
 
     // .catch(function(error) {
@@ -115,7 +115,7 @@ class Form extends React.Component {
             <legend>Survey</legend>
             {/*REASON FOR VIEWING*/}
             <label className="Question">
-              Reason for viewing
+              Reason For Viewing
             </label > <br />
 
             <div className="answer"> 
