@@ -30,7 +30,7 @@ class Form extends React.Component {
   handleSubmit(event) {
     axios.post('https://mongodb-results-api.herokuapp.com/results/post', {
       Company: this.state.Company,
-      Positoin: this.state.Position,
+      Position: this.state.Position,
       City: this.state.City,
       Province: this.state.Province,
       Country: this.state.Country,

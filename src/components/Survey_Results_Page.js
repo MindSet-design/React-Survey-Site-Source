@@ -28,9 +28,10 @@ class SurveyResults extends Component {
         { this.state.surveys.map(survey => <li key={survey._id}>
           <h2>{survey.Company}, {survey.Position}</h2>
           <p>{survey.City}, {survey.Province}, {survey.Country}</p>                           
-          <h3>Interest Level:{survey.Interest}</h3>
+          <h3>Interest Level:</h3>
+          <p>{survey.Interest}</p>
           <h3>Comments:</h3>
-          <p>{survey.Comments}</p>
+          <p className='Comments'>{survey.Comments}</p>
           </li>)}
       </ul>
     )
