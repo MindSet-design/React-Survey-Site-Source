@@ -3,12 +3,13 @@
     margin: auto;   
 }
 
-.Homeh2{
+.Homep{
     color:azure ;
     padding: 2rem;
     font-size: 2vmax;
     background: rgb(36, 36, 36);
 }
+
 
 .Homeh1 {
     display: flex;

@@ -7,9 +7,9 @@ class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      Company: '', Name: '', City: '', Province: '', Country: '',
+      Company: '', Position: '', City: '', Province: '', Country: '',
 
-      RFV: '', Industry: '', WorkLocation: '', TravelReq: ''
+      Interest:'', Comments:''
 
     };
 
@@ -29,15 +29,13 @@ class Form extends React.Component {
 
   handleSubmit(event) {
     axios.post('https://mongodb-results-api.herokuapp.com/results/post', {
-      Name: this.state.Name,
       Company: this.state.Company,
-      City: this.state.City ,
+      Positoin: this.state.Position,
+      City: this.state.City,
       Province: this.state.Province,
       Country: this.state.Country,
-      RFV: this.state.RFV,
-      Industry: this.state.Industry,
-      WorkLocation: this.state.WorkLocation,
-      TravelReq: this.state.TravelReq
+      Interest: this.state.Interest,
+      Comments: this.state.Comments
     })
     
     alert('thank you for your submission');
@@ -71,18 +69,18 @@ class Form extends React.Component {
 
             <input
               className="textinput"
-              placeholder="Name"
-              name="Name"
-              type="text"
-              value={this.state.Name}
-              onChange={this.handleChange} /><br />
-
-            <input
-              className="textinput"
               placeholder="Company"
               name="Company"
               type="text"
               value={this.state.Company}
+              onChange={this.handleChange} /><br />
+
+            <input
+              className="textinput"
+              placeholder="Position"
+              name="Position"
+              type="text"
+              value={this.state.Position}
               onChange={this.handleChange} /><br />
           
             <input
@@ -112,127 +110,81 @@ class Form extends React.Component {
           </fieldset>
 
           <fieldset>
-            <legend>Survey</legend>
-            {/*REASON FOR VIEWING*/}
-            <label className="Question">
-              Reason For Viewing
-            </label > <br />
+            <legend>Interest/Comments</legend>
 
-            <div className="answer"> 
-              <input 
-              className="bubbles"
-              id="workRFV"
-              name="RFV"
-              type="radio"
-              value="Reviewing Resume"
-              onChange={this.handleChange}
-              />
-              <label htmlFor="workRFV">Reviewing Resume</label>
-
-              <input 
-              className="bubbles"
-              id="otherRFV"
-              name="RFV"
-              type="radio"
-              value="Other"
-              onChange={this.handleChange}
-              /> 
-              <label htmlFor="otherRFV">Other</label>
-            </div><br />
-       
-            {/*INDUSTRY*/}
+            {/*interest level / Comments*/}
 
             <label className="Question">
-              Industry
-            </label> <br />
-
-            <div className="answer"> 
-              <input 
-              className="bubbles"
-              id="elec"
-              name="Industry"
-              type="radio"
-              value="Electronics"
-              onChange={this.handleChange}
-              /> 
-              <label htmlFor="elec">Electronics</label>
-            
-              <input 
-              className="bubbles"
-              id="soft"
-              name="Industry"
-              type="radio"
-              value="Software"
-              onChange={this.handleChange}
-              /> 
-              <label htmlFor="soft">Software</label>
-
-              <input
-              className="bubbles"
-              id="otherIndustry" 
-              name="Industry"
-              type="radio"
-              value="Other"
-              onChange={this.handleChange}
-              /> 
-              <label htmlFor="otherIndustry">Other</label>
-            </div><br />
-
-            {/*WORK LOCATION*/}
-
-            <label className="Question">
-              Work Location
-            </label> <br />
-
-            <div className="answer"> 
-
-              <input 
-              className="bubbles"
-              id="onsite"
-              name="WorkLocation"
-              type="radio"
-              value="On Site"
-              onChange={this.handleChange}
-              /> 
-              <label htmlFor="onsite">On Site</label>
-
-              <input 
-              className="bubbles"
-              id="remote"
-              name="WorkLocation"
-              type="radio"
-              value="Remote"
-              onChange={this.handleChange}
-              /> 
-              <label htmlFor="remote">Remote</label>
-            </div> <br />
-
-            {/*TRAVEL REQUIRED*/}
-
-            <label className="Question">
-               Traveled Required
+               Interest Level
             </label> <br />
 
             <div className="answer">  
               <input
               className="bubbles"
-              id="yes" 
-              name="TravelReq"
+              id="weak" 
+              name="Interest"
               type="radio"
-              value="Yes"
+              value="weak"
               onChange={this.handleChange}
               /> 
-              <label htmlFor="yes">Yes</label>
+              <label htmlFor="weak">weak</label>
 
               <input 
               className="bubbles"
-              id="no"
-              name="TravelReq"
+              id="below"
+              name="Interest"
               type="radio"
-              value="No"
+              value="below average"
               onChange={this.handleChange}
               /> 
-              <label htmlFor="no">No</label>
+              <label htmlFor="below">below average</label>
+
+              <input 
+              className="bubbles"
+              id="average"
+              name="Interest"
+              type="radio"
+              value="average"
+              onChange={this.handleChange}
+              /> 
+              <label htmlFor="average">average</label>
+
+              <input 
+              className="bubbles"
+              id="above"
+              name="Interest"
+              type="radio"
+              value="above average"
+              onChange={this.handleChange}
+              /> 
+              <label htmlFor="above">above average</label>
+
+              <input 
+              className="bubbles"
+              id="strong"
+              name="Interest"
+              type="radio"
+              value="strong"
+              onChange={this.handleChange}
+              /> 
+              <label htmlFor="strong">strong</label>
+
+            </div>
+            <label className="Question">
+               Comments
+            </label> <br />
+
+            <div className='answer'>
+              <textarea
+                className="textinput"
+                placeholder="Comments"
+                name="Comments"
+                type="text"
+                rows="4"
+                cols="50"
+                maxlength="250"
+                value={this.state.Comments}
+                onChange={this.handleChange} /> <br />
             </div>
 
           </fieldset>
